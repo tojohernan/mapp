@@ -1,0 +1,28 @@
+######### TEST 1 #########
+
+1. Se cargo el SO Raspberrian en una micro sd de 64 GB y se inicializo la raspberry
+2. Configuracion de la micro sd para que sea de Lectura/ Escritura (https://raspberrypi.stackexchange.com/questions/68912/can-start-pi-but-get-errors-due-to-read-only-filesystem )
+    a. sudo su [type password]
+    b. mount -o remount, rw /
+3. Configuracion de la placa wifi EDIMAX USB (https://www.andreagrandi.it/2014/09/02/how-to-configure-edimax-ew-7811un-wifi-dongle-on-raspbian/ ):
+    a. Edit /etc/network/interfaces and insert these configuration values:
+auto lo
+iface lo inet loopback
+iface eth0 inet dhcp
+
+allow-hotplug wlan0
+auto wlan0
+
+iface wlan0 inet dhcp
+wpa-ssid YOURESSID
+wpa-psk YOURWPAPASSWORD
+
+
+######### TEST 2 #########
+
+- Se uso una micro SD de alta velocidad, eso soluciono varios inconvenientes de lectura/escritura.
+- Cargamos la version Lite de Raspberrian.
+- Le adiganmos un IP fina en LAN a la raspberry .
+- Nos conectamos via ssh.
+
+# ssh pi@{IP-LAN-RASPBERRY}
